@@ -1,0 +1,71 @@
+@import "variables";
+@import "mixin";
+@import "sidebar";
+
+// 背景
+.primary-back{
+  background: $color-primary;
+}
+
+.danger-back {
+  background: $color-danger;
+}
+
+.success-back{
+  background: $color-success;
+}
+
+html, body, #app{
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration:none;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+.app-main {
+  @include relative
+}
+
+// electron drag 可拖动
+.can-move {
+  -webkit-app-region: drag;
+}
+
+// electron drag 不可拖动
+// 子控件设置 可获取事件
+.not-move {
+  -webkit-app-region: no-drag;
+}
+
+
+.header-view {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  width: 100%;
+  .right {
+    margin-right: 15px;
+    .btn {
+      font-size: 17px;
+    }
+  }
+  .close .btn:hover {
+    color: $color-danger;
+  }
+  .minimize .btn:hover {
+    color: $color-success
+  }
+}

@@ -1,0 +1,76 @@
+.cd-index-main{
+  width: 100%;
+  height:100%;
+  background: #fff;
+
+  .cd-index-left{
+    float: left;
+    height: 100%;
+    width: 300px;
+    padding: 45px 25px;
+    .cd-index-head{
+      height: 80px;
+      h1{
+        color: #5b5bea;
+        font-weight: lighter;
+        font-size: 25px;
+      }
+      p{
+        margin-top: 5px;
+        color: #888888;
+        font-size: 14px;
+      }
+    }
+
+    .cd-index-post-button{
+      margin-top: 25px;
+      padding-bottom: 20px;
+      button{
+        width: 150px;
+        height: 40px;
+        border-radius: 100px;
+        color: #fff;
+        margin-top: 20px;
+        margin-left: 70px;
+        background: #4f93f4;
+        background: -webkit-linear-gradient(90deg, #600fff, #4f93f4,#600fff, #81bffa, #600fff, #4f93f4, #600fff, #600fff);
+        background: -o-linear-gradient(90deg, #600fff, #4f93f4,#600fff, #81bffa, #600fff, #4f93f4, #600fff, #600fff);
+        background: -moz-linear-gradient(90deg, #600fff, #4f93f4,#600fff, #81bffa, #600fff, #4f93f4, #600fff, #600fff);
+        background: linear-gradient(90deg, #600fff, #4f93f4,#600fff, #81bffa, #600fff, #4f93f4, #600fff, #600fff);
+        -webkit-transition: background 0.1s ease-in-out;
+        -moz-transition: background 0.1s ease-in-out;
+        -o-transition: background 0.1s ease-in-out;
+        transition: background 0.1s ease-in-out;
+        box-shadow:0 3px 10px #7c7cee;
+        background-size: 400%;
+        background-position:-280%, 50%;
+      }
+    }
+  }
+
+  .cd-index-right{
+    float: right;
+    width: calc(100% - 350px);
+    height: 550px;
+    background-image: url("../../assets/img/bg/right-bg-c.png");
+    background-size: cover;
+    img{
+      width: 130px;
+      position: fixed;
+      top: 225px;
+      right: 150px;
+    }
+  }
+}
+
+.cd-index-input{
+  width: 100%;
+  height: 40px;
+  position: relative;
+  border-bottom: 1px solid #eee;
+  margin-top: 20px;
+  overflow: unset!important;
+}
+
+
+
