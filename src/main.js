@@ -11,6 +11,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 import '@/icons'
+import './assets/icon/iconfont.css'
 
 import electron from "electron";
 const ipcRenderer = electron.ipcRenderer;

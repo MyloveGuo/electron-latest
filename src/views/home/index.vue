@@ -21,7 +21,6 @@
                 </el-row>
             </el-main>
             <el-footer><p align="center">请在左侧选择服务</p></el-footer>
-            <el-button @click="login">login</el-button>
         </el-container>
 
     </div>
@@ -36,9 +35,6 @@
             }
         },
         methods:{
-            login(){
-                this.$router.push('login')
-            }
         }
     }
 </script>

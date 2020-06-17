@@ -4,6 +4,9 @@
             <el-button @click="minimize" class="no-drag minimize" size="mini" type="text">
                 <i class="btn el-icon-minus"></i>
             </el-button>
+            <el-button @click="maximize" class="no-drag" size="mini" type="text">
+                <i class="btn el-icon-ali-max iconfont"></i>
+            </el-button>
             <el-button @click="close" class="no-drag close" size="mini" type="text">
                 <i class="btn el-icon-close"></i>
             </el-button>
@@ -43,6 +46,9 @@
             minimize() {
                 this.WindowObject.minimize()
             },
+            maximize(){
+
+            }
         }
     }
 </script>

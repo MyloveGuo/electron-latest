@@ -12,9 +12,10 @@
                 <div class="cd-index-form not-move">
                     <LoginInput :data="ClientIdInput "/>
                     <div class="cd-index-post-button">
-                        <el-button>连接云端</el-button>
+                        <el-button @click="login">连接云端</el-button>
                     </div>
                 </div>
+
             </div>
             <div class="cd-index-right">
                 <div class="header-view can-move">
@@ -57,6 +58,13 @@
         },
         created() {
             this.WindowObject = this.$electron.remote.getCurrentWindow();
+            // this.$ipc.on('win-data', (e, data) => {
+            //             //接收是否允许自动登录
+            //             this.LoginUserInput.value = data.username || '';
+            //             if (this.LoginUserInput.value) {
+            //                 this.login();
+            //             }
+            // });
         },
         methods: {
             close(){
@@ -64,6 +72,12 @@
             },
             minimize(){
                 this.WindowObject.minimize()
+            },
+            login(){
+                this.WindowObject.setAlwaysOnTop(false);
+                this.$ipc.send('system', 'login', {
+                    clientID: this.ClientIdInput.value,
+                });
             }
         }
     }

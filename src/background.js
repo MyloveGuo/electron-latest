@@ -1,6 +1,6 @@
 'use strict'
 
-import { app, protocol, BrowserWindow,ipcMain } from 'electron'
+import {app, protocol, BrowserWindow, ipcMain, session} from 'electron'
 import {
   createProtocol,
 } from 'vue-cli-plugin-electron-builder/lib'
@@ -39,6 +39,33 @@ let CloudSystem = {
         LoginWindow = null;
       }
     });
+  },
+  MainWindow: data => {
+    MainWindow = windowControl.create({
+      url: 'home',
+      data: data,
+      title: 'Cloud',
+      width: 950,
+      minWidth: 800,
+      minHeight: 560,
+      height: 610,
+      onclose: () => {
+        MainWindow = null;
+        let wins = BrowserWindow.getAllWindows();
+        for (let i = 0; i < wins.length; i++) {
+          if (wins[i].name !== '/') {
+            wins[i] ? wins[i].close() : '';
+          }
+        }
+        if (!LoginWindow) {
+          app.quit();
+        }
+        session.defaultSession.removeAllListeners('will-download');
+      },
+      callback: () => {
+        LoginWindow ? LoginWindow.close() : '';
+      }
+    });
   }
 }
 
@@ -47,6 +74,9 @@ function bindIpc(){
   /*系统操作事件*/
   ipcMain.on('system', (event, type, data) => {
     switch (type) {
+      case 'login':
+        CloudSystem.MainWindow(data)
+        break;
       case 'close':break;
       case 'minimizable':break;
       }

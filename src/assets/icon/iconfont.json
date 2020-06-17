@@ -1,0 +1,16 @@
+{
+  "id": "1890223",
+  "name": "client",
+  "font_family": "iconfont",
+  "css_prefix_text": "el-icon-ali-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6548529",
+      "name": "多选_未选中",
+      "font_class": "max",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    }
+  ]
+}

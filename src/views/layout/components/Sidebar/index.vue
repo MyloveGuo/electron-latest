@@ -9,7 +9,7 @@
       mode="vertical"
       :show-timeout="200"
       :default-active="$route.path"
-      :collapse="isCollapse"
+      :collapse="!sidebar.opened"
       :router="true"
       background-color="#304156"
       text-color="#bfcbd9"
@@ -24,8 +24,8 @@
         </el-menu-item>
     </el-menu>
     <div class="close">
-      <el-button type="danger" size="mini" @click="close" v-show="!isCollapse" style="width: 80%">退出</el-button>
-      <el-button type="danger" size="medium" @click="close" v-show="isCollapse" circle icon="el-icon-switch-button" style="margin: 0"></el-button>
+      <el-button type="danger" size="mini" @click="close" v-show="sidebar.opened" style="width: 80%">退出</el-button>
+      <el-button type="danger" size="medium" @click="close" v-show="!sidebar.opened" circle icon="el-icon-switch-button" style="margin: 0"></el-button>
     </div>
   </el-scrollbar>
 </template>
@@ -47,18 +47,18 @@ export default {
     routes() {
       return this.$router.options.routes
     },
-    isCollapse() {
-      return !this.sidebar.opened
-    }
   },
-  methods: {
+    created() {
+        this.WindowObject = this.$electron.remote.getCurrentWindow();
+    },
+    methods: {
     close() {
       this.$confirm('此操作将退出程序, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        this.$electron.ipcRenderer.send('close')
+          this.WindowObject.close()
       })
     }
   }
